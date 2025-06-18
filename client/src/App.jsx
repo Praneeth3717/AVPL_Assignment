@@ -13,11 +13,10 @@ function App() {
 
   const user = JSON.parse(localStorage.getItem('user'));
 
-  // Fetch students from backend
   const fetchStudents = async () => {
     try {
       const token = localStorage.getItem('authToken');
-      const res = await axios.get('http://localhost:5000/api/students', {
+      const res = await axios.get('https://avpl-assignment-backend.onrender.com/api/students', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setStudents(res.data);
@@ -26,7 +25,6 @@ function App() {
     }
   };
 
-  // On first load: check auth
   useEffect(() => {
     const token = localStorage.getItem('authToken');
     if (token) {
@@ -35,11 +33,10 @@ function App() {
     }
   }, []);
 
-  // Delete student by ID
   const handleDelete = async (id) => {
     try {
       const token = localStorage.getItem('authToken');
-      await axios.delete(`http://localhost:5000/api/students/${id}`, {
+      await axios.delete(`https://avpl-assignment-backend.onrender.com/api/students/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchStudents();
@@ -48,13 +45,11 @@ function App() {
     }
   };
 
-  // Auth success callback
   const handleAuthSuccess = () => {
     setIsAuthenticated(true);
     fetchStudents();
   };
 
-  // Logout logic
   const handleLogout = () => {
     localStorage.removeItem('authToken');
     localStorage.removeItem('user');
@@ -63,7 +58,6 @@ function App() {
     setStudentToEdit(null);
   };
 
-  // Stats
   const totalStudents = students.length;
   const fullPaid = students.filter((s) => s.feeStatus === 'paid').length;
   const partialPaid = students.filter((s) => s.feeStatus === 'partial').length;
