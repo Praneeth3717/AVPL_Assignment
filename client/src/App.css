@@ -1,0 +1,16 @@
+.main-container {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.left-panel {
+  flex: 1;
+  min-width: 320px;
+}
+
+.right-panel {
+  flex: 2;
+  min-width: 400px;
+}
