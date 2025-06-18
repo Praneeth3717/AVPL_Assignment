@@ -10,8 +10,8 @@ const sendFeeEmail = async (student) => {
       }
     });
 
-    const confirmYesLink = `${process.env.BASE_URL}/api/students/confirm?studentId=${student._id}&response=yes`;
-    const confirmNoLink = `${process.env.BASE_URL}/api/students/confirm?studentId=${student._id}&response=no`;
+    const confirmYesLink = `https://avpl-assignment-backend.onrender.com/api/students/confirm?studentId=${student._id}&response=yes`;
+    const confirmNoLink = `https://avpl-assignment-backend.onrender.com/api/students/confirm?studentId=${student._id}&response=no`;
 
     const mailOptions = {
       from: `"ERP Admin" <${process.env.EMAIL_FROM}>`,
