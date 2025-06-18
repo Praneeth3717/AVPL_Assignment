@@ -60,7 +60,6 @@ const Dashboard = ({ totalStudents, fullPaid, partialPaid, fullDue, students, on
   );
 };
 
-// Utility function to capitalize first letter
 const capitalize = (text) => {
   return text ? text.charAt(0).toUpperCase() + text.slice(1) : '';
 };
