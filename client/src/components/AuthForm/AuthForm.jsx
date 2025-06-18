@@ -26,7 +26,7 @@ const AuthForm = ({ onAuthSuccess }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = `http://localhost:5000/api/auth/${mode}`;
+    const url = `https://avpl-assignment-backend.onrender.com/api/auth/${mode}`;
 
     try {
       const { data } = await axios.post(url, formData);
@@ -36,7 +36,7 @@ const AuthForm = ({ onAuthSuccess }) => {
       if (data.token) {
         localStorage.setItem('authToken', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
-        onAuthSuccess?.(); // 🚀 tell App.jsx auth is successful
+        onAuthSuccess?.(); 
       }
     } catch (err) {
       setError(err.response?.data?.message || 'Something went wrong');
