@@ -38,13 +38,13 @@ const AddStudent = ({ onSubmit, studentToEdit = null }) => {
     try {
       if (student._id) {
         // UPDATE EXISTING STUDENT
-        await axios.put(`http://localhost:5000/api/students/${student._id}`, {
+        await axios.put(`https://avpl-assignment-backend.onrender.com/api/students/${student._id}`, {
           ...student,
           feeStatus: student.status.toLowerCase(),
         });
       } else {
         // ADD NEW STUDENT
-        await axios.post('http://localhost:5000/api/students', {
+        await axios.post('https://avpl-assignment-backend.onrender.com/api/students', {
           ...student,
           feeStatus: student.status.toLowerCase(),
         });
